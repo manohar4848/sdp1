@@ -1,0 +1,35 @@
+{% extends 'index.html' %}
+
+{% block body %}
+<style>
+    #formContainer {
+        width: 300px; /* Adjust the width as needed */
+        margin: 0 auto; /* This centers the form horizontally */
+        text-align: center; /* This centers the content inside the form */
+    }
+</style>
+
+<div id="formContainer">
+    <form method="post" action="{% url 'otp' %}">
+        {% csrf_token %}
+        <h2>Enter Name and Email</h2>
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name1" required><br><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+        <button type="submit" id="submitButton">Submit</button>
+    </form>
+
+</div>
+
+<script>
+    document.getElementById("userInfoForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent the form from submitting
+
+        // Hide user info form
+        document.getElementById("userInfoForm").style.display = "none";
+        // Display OTP section
+        document.getElementById("otpSection").style.display = "block";
+    });
+</script>
+{% endblock %}

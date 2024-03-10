@@ -1,0 +1,121 @@
+{% extends 'adminhome.html' %}
+{% load static %}
+{% block 'body' %}
+<h3 align="right"> Welcome {{adminuname}}</h3>
+<style>
+    body {
+
+        background-image: url('{% static "images/adc.png" %}');
+        background-size: 100% 100%; /* Ensure the image covers the entire background */
+        background-position: center center;
+        background-repeat: no-repeat;
+        filter: brightness(1.2);
+    }
+
+    .form-container {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+        margin: 50px auto;
+        width: 60%;
+    }
+
+    h2, h3 {
+        color: #002aff;
+    }
+</style>
+
+<h2 align="center">{{msg}}</h2>
+<h3 align="center"><u> ADD COURSE</u></h3> <br>
+
+
+<!--<p> I AM IN ADD COURSE PAGE</p>-->
+<form method="post" action="{% url 'inseretcourse' %}">
+    {% csrf_token %}
+    <table align="center" WIDTH="30%">
+        <!-- Add the rest of your form content here, as it was in your original code -->
+         <tr align="center">
+            <td style="margin-bottom: 10px;"> <label> Select Department</label></td>
+            <td style="margin-bottom: 10px;">
+                <select name="dept" required>
+                    <option value=" ">--Select--</option>
+                    <option value="CSE(H) "> CSE(Honors)</option>
+                    <option value="CSE(R)"> CSE(Regular)</option>
+                    <option value="CS&IT"> CS&IT</option>
+                    <option value="MECHANICAL"> MECHANICAL</option>
+                    <option value="CIVIL"> CIVIL</option>
+                    <option value="ECE"> ECE</option>
+                    <option value="OTHERS"> OTHERS</option>
+                </select>
+            </td>
+        </tr>
+        <tr align="center">
+    <td style="margin-bottom: 10px;"> <label> Select Program</label></td>
+    <td style="margin-bottom: 10px;">
+        <select name="program" required>
+            <option value=" ">--Select--</option>
+            <option value="B.Tech"> B.Tech</option>
+            <option value="M.Tech"> M.Tech</option> <!-- Fix the value for M.Tech -->
+        </select>
+    </td>
+</tr>
+
+        <tr align="center">
+            <td style="margin-bottom: 10px;"> <label> Select Academic year</label></td>
+            <td style="margin-bottom: 10px;">
+                <select name=ay required>
+                    <option value=" ">--Select--</option>
+                    <option value="2023-24 "> 2023-24</option>
+                    <option value="2022-23"> 2022-23</option>
+                </select>
+            </td>
+        </tr>
+        <tr align="center">
+            <td style="margin-bottom: 10px;"> <label> Select Semester</label></td>
+            <td style="margin-bottom: 10px;">
+                <select name="sem" required>
+                    <option value=" ">--Select--</option>
+                    <option value="ODD "> ODD SEM</option>
+                    <option value="EVEN "> EVEN SEM</option>
+                </select>
+            </td>
+        </tr>
+        <tr align="center">
+            <td style="margin-bottom: 10px;"> <label> Enter Year</label></td>
+            <td style="margin-bottom: 10px;">
+               <input type="number" name="year" min="1" max="4">
+            </td>
+        </tr>
+        <tr align="center">
+            <td style="margin-bottom: 10px;"> <label> Enter Course Code</label></td>
+            <td style="margin-bottom: 10px;">
+               <input type="text" name="ccode" required>
+            </td>
+        </tr>
+        <tr align="center">
+            <td style="margin-bottom: 10px;"> <label> Enter Course Title</label></td>
+            <td style="margin-bottom: 10px;">
+               <input type="text" name="ctitle" required>
+            </td>
+        </tr>
+        <tr align="center">
+            <td style="margin-bottom: 10px;"> <label>  LTPS</label></td>
+            <td style="margin-bottom: 10px;">
+               <input type="text" name="ltps" required placeholder="X-X-X-X">
+            </td>
+        </tr>
+        <br>
+       <tr align="center">
+            <td style="margin-bottom: 10px;"> <label> Enter Credits</label></td>
+            <td style="margin-bottom: 10px;">
+               <input type="number" name="credits" min="0" max="8" required>
+            </td>
+        </tr>
+        <tr align="center">
+            <td><button type="submit" class="button" style="background-color: lightskyblue; color: white;">Add</button></td>
+            <td><button type="reset" class="button" style="background-color: lightskyblue; color: white;">Clear</button></td>
+        </tr>
+    </table>
+</form>
+
+{% endblock %}

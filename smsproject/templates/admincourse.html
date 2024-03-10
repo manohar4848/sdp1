@@ -1,0 +1,16 @@
+{% extends 'adminhome.html' %}
+{% load static %}
+
+{% block 'body' %}
+<div class="container text-center">
+  <p> I am in Admin course page </p>
+    <h3 align="right"> Welcome {{adminuname}}</h3>
+
+
+<button class="button" style="color: blue !important;"> <a href="{% url 'addcourse' %}"> ADD COURSE</a> </button>
+  <button class="button" style="color: blue !important;"> <a href="{% url 'viewcourses' %}">VIEW ALL COURSES </a></button>
+  <button class="button" style="color: blue !important;"> <a href=" {% url 'updatecourse' %}">UPDATE COURSE </a></button>
+  <button class="button" style="color: blue !important;"> <a href="{% url 'deletecourse' %}">DELETE COURSE </a></button>
+  <center><img src="{% static 'images/cc.jpg' %}" alt="UNABLE TO LOAD" class="d-block w-100 mt-3"></center>
+</div>
+{% endblock %}

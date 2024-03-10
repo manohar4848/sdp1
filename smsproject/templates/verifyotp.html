@@ -1,0 +1,35 @@
+{% extends 'index.html' %}
+
+{% block body %}
+<h2 align="center">{{message}}</h2>
+<style>
+    /* CSS to center-align content */
+    .centered-content {
+        display: flex; /* Use flexbox */
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
+        height: 60vh; /* Set height to 100% of viewport height */
+    }
+
+    #otpForm {
+        text-align: center; /* Center-align form elements */
+    }
+</style>
+
+<div class="centered-content">
+    <div>
+        <p>Verify OTP here</p>
+        <form method="post" action="{% url 'vo' %}" id="otpForm">
+            {% csrf_token %}
+            <h2>Enter Name, Email, and OTP</h2>
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name1" required><br><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+            <label for="otp">OTP:</label><br>
+            <input type="text" id="otp" name="otp" required><br><br>
+            <button type="submit" id="submitButton">Submit</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

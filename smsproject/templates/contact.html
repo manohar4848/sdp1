@@ -1,0 +1,40 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block body %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <center>
+<!--        <img src="{% static 'images/image1.jpg' %}" alt="UNABLE TO LOAD" class="img-fluid mt-3" style="max-width: 45%; height: auto; margin-right: 5%;">-->
+<!--        <img src="{% static 'images/m.jpeg' %}" alt="UNABLE TO LOAD" class="img-fluid mt-3" style="max-width: 35%; height: auto;">-->
+<!--      </center>-->
+<!--      <p><b>Name: Kadambala Manoj</b></p>-->
+<!--      <p><b>Phone: 7207090087</b></p>-->
+<!--      <p><b>Email: kadambalamanoj2005@gmail.com</b></p>-->
+      <a href="https://www.linkedin.com/in/manoj-kadambala-33708b247/" target="_blank">
+        <img src="{% static 'images/linkedin.jpg' %}" class="social_img" alt="LinkedIn Logo" style="width: 50px; height: 50px; margin-right: 10px;">
+      </a>
+      <span>LinkedIn</span>
+      <br>
+      <a href="https://github.com/kadambalamanoj" target="_blank">
+        <img src="{% static 'images/Git.png' %}" class="social_img" alt="Instagram Logo" style="width: 50px; height: 50px; margin-right: 10px;">
+      </a>
+      <span>Github</span>
+      <br>
+      <a href="https://www.instagram.com/kadambala.manoj/" target="_blank">
+        <img src="{% static 'images/instagram.jpg' %}" class="social_img" alt="Instagram Logo" style="width: 50px; height: 50px; margin-right: 10px;">
+      </a>
+      <span>Instagram</span>
+      <br>
+      <a href="https://www.facebook.com/manoj.kadambala.98" target="_blank">
+        <img src="{% static 'images/facebook.jpg' %}" class="social_img" alt="Instagram Logo" style="width: 50px; height: 50px; margin-right: 10px;">
+      </a>
+      <span>Facebook</span>
+    </div>
+    <div class="col-md-6 text-center">
+      <p><h2>We can contact us Here</h2></p>
+    </div>
+  </div>
+</div>
+<br><br><br><br><br><br>
+{% endblock %}

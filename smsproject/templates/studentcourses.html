@@ -1,0 +1,68 @@
+{% extends 'studenthome.html' %}
+{% load static %}
+{% block 'body' %}
+<h3 align="right"> Welcome {{sid}}</h3>
+<style>
+    body {
+
+        background-image: url('{% static "images/adc.png" %}');
+        background-size: 100% 100%; /* Ensure the image covers the entire background */
+        background-position: center center;
+        background-repeat: no-repeat;
+        filter: brightness(1.2);
+    }
+
+    .form-container {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+        margin: 50px auto;
+        width: 60%;
+    }
+
+    h2, h3 {
+        color: #008cff;
+    }
+</style>
+
+<h2 align="center">{{msg}}</h2>
+<h3 align="center"><u> View Courses</u></h3> <br>
+
+
+<!--<p> I AM IN ADD COURSE PAGE</p>-->
+<form method="post" action="{% url 'displaystudentcourses' %}">
+    {% csrf_token %}
+    <table align="center" WIDTH="30%">
+
+        <tr align="center">
+            <td style="margin-bottom: 10px;"> <label>  Academic year</label></td>
+            <td style="margin-bottom: 10px;">
+                <select name=ay required>
+                    <option value=" ">--Select--</option>
+                    <option value="2023-24 "> 2023-24</option>
+                    <option value="2022-23"> 2022-23</option>
+                </select>
+            </td>
+        </tr>
+        <tr align="center">
+            <td style="margin-bottom: 10px;"> <label>  Semester</label></td>
+            <td style="margin-bottom: 10px;">
+                <select name="sem" required>
+                    <option value=" ">--Select--</option>
+                    <option value="ODD "> ODD SEM</option>
+                    <option value="EVEN "> EVEN SEM</option>
+                </select>
+            </td>
+        </tr>
+
+
+        <br>
+
+        <tr align="center">
+            <td><button type="submit" class="button" style="background-color: lightskyblue; color: white;">View</button></td>
+            <td><button type="reset" class="button" style="background-color: lightskyblue; color: white;">Clear</button></td>
+        </tr>
+    </table>
+</form>
+
+{% endblock %}
